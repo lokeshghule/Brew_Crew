@@ -2,12 +2,12 @@ import 'package:brew_crew/models/brew.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-class BrewList extends StatefulWidget {
-  const BrewList({Key? key}) : super(key: key);
+// class BrewList extends StatefulWidget {
+//   const BrewList({Key? key}) : super(key: key);
 
-  @override
-  _BrewListState createState() => _BrewListState();
-}
+//   @override
+//   _BrewListState createState() => _BrewListState();
+// }
 
 class _BrewListState extends State<BrewList> {
   @override
