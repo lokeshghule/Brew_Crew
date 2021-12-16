@@ -20,12 +20,15 @@ class wrapper extends StatelessWidget {
     //return home();
     // }
 
-    User? u = FirebaseAuth.instance.currentUser;
-    if (u == null) {
-      return authentication();
-    } else {
-      return home();
-    }
+    // User? u = FirebaseAuth.instance.currentUser;
+    // if (u == null) {
+    //   return authentication();
+    // } else {
+    //   return home();
+    // }
+
+    final user = Provider.of<MyUser?>(context);
+    return user == null ? authentication() : home();
 
     // ignore: unnecessary_null_comparison
     //   if (user == null) {

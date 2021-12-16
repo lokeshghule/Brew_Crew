@@ -16,12 +16,13 @@ class authService {
 //     }
 //   }
 
-  MyUser _userFromFirebaseUser(User? user) {
-    MyUser newuser = MyUser(uid: user!.uid);
-    return newuser;
+  MyUser? _userFromFirebaseUser(User? user) {
+    // MyUser newuser = MyUser(uid: user!.uid);
+    // return newuser;
+    return user != null ? MyUser(uid: user.uid) : null;
   }
 
-  Stream<MyUser> get user {
+  Stream<MyUser?> get user {
     return _auth.authStateChanges().map(_userFromFirebaseUser);
   }
 

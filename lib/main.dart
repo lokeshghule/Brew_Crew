@@ -19,14 +19,18 @@ void main() async {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      initialRoute: '/wrapper',
-      routes: {
-        '/authentication': (context) => authentication(),
-        '/home': (context) => home(),
-        '/wrapper': (context) => wrapper(),
-      },
+    return StreamProvider<MyUser?>.value(
+      initialData: null,
+      value: authService().user,
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        initialRoute: '/wrapper',
+        routes: {
+          '/authentication': (context) => authentication(),
+          '/home': (context) => home(),
+          '/wrapper': (context) => wrapper(),
+        },
+      ),
     );
   }
 }

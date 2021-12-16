@@ -1,4 +1,6 @@
 import 'package:brew_crew/models/brew.dart';
+import 'package:brew_crew/models/user.dart';
+import 'package:brew_crew/screens/home/settings_form.dart';
 import 'package:brew_crew/screens/wrapper.dart';
 import 'package:brew_crew/services/auth.dart';
 import 'package:flutter/material.dart';
@@ -11,20 +13,21 @@ class home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final user = Provider.of<MyUser?>(context);
     void _showSettingsPanel() {
       showModalBottomSheet(
           context: context,
           builder: (context) {
             return Container(
               padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 60.0),
-              child: Text("Bottom sheet"),
+              child: SettingsForm(),
             );
           });
     }
 
     return StreamProvider<List<Brew>?>.value(
       initialData: null,
-      value: DatabaseService().brews,
+      value: DatabaseService(uid: user!.uid).brews,
       child: Scaffold(
         backgroundColor: Colors.brown[50],
         appBar: AppBar(

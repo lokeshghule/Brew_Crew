@@ -1,13 +1,11 @@
-import 'package:brew_crew/screens/authentication/authentication.dart';
 import 'package:brew_crew/screens/home/home.dart';
 import 'package:brew_crew/services/auth.dart';
 import 'package:brew_crew/shared/loading.dart';
 import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 import 'package:brew_crew/shared/constants.dart';
 
 class Register extends StatefulWidget {
-  Function toggleView;
+  final Function toggleView;
 
   Register({required this.toggleView});
 
